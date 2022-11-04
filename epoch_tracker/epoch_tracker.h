@@ -304,9 +304,6 @@ class EpochTracker {
   // based solely on the bandpassed RMS signal, bandpassed_rms_.
   void GetRmsVoicingModulator(void);
 
-  // Free memory, and prepare the instance for a new signal.
-  void CleanUp(void);
-
   // Scan the signal in input searching for all local maxima that
   // exceed thresh.  The indices corresponding to the location of the
   // peaks are placed in output.  The first entry in output is always
@@ -322,6 +319,9 @@ class EpochTracker {
   // locations and the full NCCF are saved in the corresponding
   // elements of the resid_peaks_ array of structures.
   void GetPulseCorrelations(float window_dur, float peak_thresh);
+
+  // Free memory, and prepare the instance for a new signal.
+  void CleanUp(void);
 
 
  private:
