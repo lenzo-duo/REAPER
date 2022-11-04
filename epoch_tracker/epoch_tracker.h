@@ -284,6 +284,9 @@ class EpochTracker {
   void set_max_f0_search(float v) { max_f0_search_ = v; }
   void set_unvoiced_cost(float v) { unvoiced_cost_ = v; }
 
+  // Free memory, and prepare the instance for a new signal.
+  void CleanUp(void);
+
  private:
   // Search the signal in norm_residual_ for prominent negative peaks.
   // Grade the peaks on a combination of amplitude, "peakiness" and
@@ -319,10 +322,6 @@ class EpochTracker {
   // locations and the full NCCF are saved in the corresponding
   // elements of the resid_peaks_ array of structures.
   void GetPulseCorrelations(float window_dur, float peak_thresh);
-
-  // Free memory, and prepare the instance for a new signal.
-  void CleanUp(void);
-
 
  private:
   // EpochCand stores all of the period hypotheses that can be
